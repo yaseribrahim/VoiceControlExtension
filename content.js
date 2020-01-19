@@ -1,4 +1,5 @@
 var recognition = false;
+var video = document.getElementsByTagName("video")[0];
 
 const init = () => {
 
@@ -28,15 +29,14 @@ const init = () => {
    }
    console.log(interim_transcript)
 
+
    if (interim_transcript.search("play") != -1){
      console.log('play video was said')
-     $('video').play()
-
+     document.getElementsByTagName("video")[0].play()
    }
-
    if (interim_transcript.search("pause") != -1){
      console.log('pause video')
-     $('video').pause()
+     document.getElementsByTagName("video")[0].pause()
    }
  }
 }
