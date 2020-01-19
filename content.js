@@ -31,14 +31,22 @@ const init = () => {
 
    if (video) {
      // -1 returned if play isn't in sentence
-     if (interim_transcript.search("play") != -1){
+     if (interim_transcript.search("play video") != -1){  //loop works if 'play video' is said
        console.log('play video was said')
        video.play()
      }
-     if (interim_transcript.search("pause") != -1){
+     if (interim_transcript.search("pause video") != -1){
        console.log('pause video was said')
        video.pause()
      }
+     if (interim_transcript.search("skip video") != -1){
+      console.log('skip video was said')
+      video.currentTime = video.currentTime + 10  //currentTime is incremented by 10
+     }
+     if (interim_transcript.search("rewind video") != -1){
+      console.log('rewind video was said')
+      video.currentTime = video.currentTime - 10 //currentTime is decremented by 10
+    }
    }
  }
 }
