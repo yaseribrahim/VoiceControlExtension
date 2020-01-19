@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-  <html xmlns="http://www.w3.org/1999/xhtml" style="min-width:250px;">
+  <html xmlns="http://www.w3.org/1999/xhtml" style="min-width:220px;">
     <head>
       <style>
       .button {
-        background-color: #F44336; /* red */
+        background-color: #22a7cc;
         border: none;
         color: white;             /* text color */
         cursor:pointer;
-        padding: 15px 32px;
+        padding: 10px 20px;
         text-align: center;
         text-decoration: none;
         font-size: 16px;
         border-radius: 12px;
         box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
-        margin: 8px
+        margin: 4px
       }
       .button:hover {
 
@@ -22,19 +22,26 @@
         position:relative;
 	      top:1px;
       }
-      .button2 {background-color: #FFFFFF; color: #f44336;} /* white */
+      .button2 {background-color: #FFFFFF; color: #22a7cc;} /* white */
       </style>
 
     </head>
     <body style="text-align:center">
         <img src='./voice100.png' id='hydrateImage'>
-        <img src='./text2.jpg' id='hydrateImage'>
+        <!-- <img src='./text2.jpg' id='hydrateImage'> -->
+
         <button class="button" id='recordButton'>Start Recording</button>
-        <button class="button button2">Stop Recording</button>
+        <button class="button button2" id='stopButton'>Stop Recording</button>
+        <h3 style="color:darkgrey;">Commands:</h3>
+        <h4 style="color:darkgrey;">"PLAY VIDEO"</h3>
+        <h4 style="color:darkgrey;">"PAUSE VIDEO"</h3>
+        <h4 style="color:darkgrey;">"SKIP VIDEO"<br/>(by 10s)</h3>
+        <h4 style="color:darkgrey;">"REWIND VIDEO"<br/>(by 10s)</h3>
         <!-- <button id='changeColor' value='0.1'>Change Color</button>
         <button id='15min' value='15'>15 Minutes</button>
         <button id='30min' value='30'>30 Minutes</button>
         <button id='cancelAlarm'>Cancel Alarm</button> -->
+
       <script src="popup.js"></script>
     </body>
   </html>
