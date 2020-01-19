@@ -5,7 +5,7 @@ chrome.storage.sync.get('color', function(data) {
   changeColor.setAttribute('value', data.color);
 });
 
-changeColor.onclick = function(element) {
+recordButton.onclick = function(element) {
   console.log('button pressed')
    let color = element.target.value;
 
