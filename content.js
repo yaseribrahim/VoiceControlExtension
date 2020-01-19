@@ -29,14 +29,16 @@ const init = () => {
    }
    console.log(interim_transcript)
 
-
-   if (interim_transcript.search("play") != -1){
-     console.log('play video was said')
-     document.getElementsByTagName("video")[0].play()
-   }
-   if (interim_transcript.search("pause") != -1){
-     console.log('pause video')
-     document.getElementsByTagName("video")[0].pause()
+   if (video) {
+     // -1 returned if play isn't in sentence
+     if (interim_transcript.search("play") != -1){
+       console.log('play video was said')
+       video.play()
+     }
+     if (interim_transcript.search("pause") != -1){
+       console.log('pause video was said')
+       video.pause()
+     }
    }
  }
 }
