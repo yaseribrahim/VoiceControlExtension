@@ -1,5 +1,6 @@
 var recognition = false;
 var video = document.getElementsByTagName("video")[0];
+console.log('new website')
 
 const init = () => {
 
@@ -9,12 +10,11 @@ const init = () => {
   recognition.lang = "en-US";
 
   recognition.onspeechstart = event => console.log("speech started");
-  recognition.onspeechend = event => recognition.stop();
+  // recognition.onspeechend = event => recognition.stop();
 
 
   recognition.onresult = event => {
    let last = event.results.length - 1;
-   // let lastTranscript = event.results[last][0].transcript;
 
    let interim_transcript = '';
    let final_transcript = '';
@@ -47,11 +47,15 @@ const init = () => {
       console.log('rewind video was said')
       video.currentTime = video.currentTime - 10 //currentTime is decremented by 10
     }
-   }
+  } else{
+    recognition.stop()
+  }
  }
-}
 
+
+}
 init()
+
 
 chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
   if(request.data === "start"){
@@ -59,6 +63,7 @@ chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
     console.log('recognition started')
   } else if(request.data === "stop") {
     recognition.stop()
-  } else {
+  } else if(request.data == "checkVideo"){
+    console.log('checkVideo')
   }
 });
