@@ -1,16 +1,39 @@
 <!DOCTYPE html>
-  <html>
+  <html xmlns="http://www.w3.org/1999/xhtml" style="min-width:250px;">
     <head>
       <style>
-        button {
-          height: 30px;
-          width: 30px;
-          outline: none;
-        }
+      .button {
+        background-color: #F44336; /* red */
+        border: none;
+        color: white;             /* text color */
+        cursor:pointer;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 12px;
+        box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
+        margin: 8px
+      }
+      .button:hover {
+
+      }
+      .button:relative {
+        position:relative;
+	      top:1px;
+      }
+      .button2 {background-color: #FFFFFF; color: #f44336;} /* white */
       </style>
+
     </head>
-    <body>
-      <button id="changeColor"></button>
+    <body style="text-align:center">
+        <img src='./mic-animate.gif' id='hydrateImage'>
+        <button class="button">Start Recording</button>
+        <button class="button button2">Stop Recording</button>
+        <!-- <button id='changeColor' value='0.1'>Change Color</button>
+        <button id='15min' value='15'>15 Minutes</button>
+        <button id='30min' value='30'>30 Minutes</button>
+        <button id='cancelAlarm'>Cancel Alarm</button> -->
       <script src="popup.js"></script>
     </body>
   </html>
