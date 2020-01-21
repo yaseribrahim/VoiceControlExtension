@@ -1,5 +1,4 @@
 var recognition = false;
-var video = document.getElementsByTagName("video")[0];
 console.log('new website')
 
 const init = () => {
@@ -29,7 +28,9 @@ const init = () => {
    }
    console.log(interim_transcript)
 
-   if (video) {
+   var video = document.getElementsByTagName("video")[0];
+
+   // if (video) {
      // -1 returned if play isn't in sentence
      if (interim_transcript.search("play video") != -1){  //loop works if 'play video' is said
        console.log('play video was said')
@@ -39,17 +40,15 @@ const init = () => {
        console.log('pause video was said')
        video.pause()
      }
-     if (interim_transcript.search("skip video") != -1){
-      console.log('skip video was said')
+     if (final_transcript.search("skip video") != -1){
+      // console.log('skip video was said')
       video.currentTime = video.currentTime + 10  //currentTime is incremented by 10
      }
-     if (interim_transcript.search("rewind video") != -1){
-      console.log('rewind video was said')
+     if (final_transcript.search("rewind video") != -1){
+      // console.log('rewind video was said')
       video.currentTime = video.currentTime - 10 //currentTime is decremented by 10
     }
-  } else{
-    recognition.stop()
-  }
+  // }
  }
 
 
@@ -61,8 +60,10 @@ chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
   if(request.data === "start"){
     recognition.start()
     console.log('recognition started')
+
   } else if(request.data === "stop") {
     recognition.stop()
+    console.log('recognition stopped')
   } else if(request.data == "checkVideo"){
     console.log('checkVideo')
   }
