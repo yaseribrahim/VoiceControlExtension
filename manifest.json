@@ -2,7 +2,7 @@
   "name": "VoicEE — Speech Video Playback",
   "version": "1.0",
   "description": "Controls video playback through speech commands",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": ["notifications", "activeTab", "declarativeContent", "storage"],
   "background": {
       "scripts": ["background.js"],
       "persistent": false
