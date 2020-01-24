@@ -27,5 +27,14 @@
     "matches": ["<all_urls>"],
     "all_frames": true
   }],
+  "commands": {
+    "toggle-recognition": {
+      "suggested_key": {
+        "default": "Ctrl+E",
+        "mac": "Command+E"
+      },
+      "description": "Start or stop voice recognition"
+    }
+  },
   "manifest_version": 2
 }

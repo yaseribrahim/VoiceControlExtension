@@ -2,13 +2,41 @@ var recognition = false;
 // const script = document.createElement("script");
 
 chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
-  if(request.data === "start"){
-    init()
-    recognition.start()
-    console.log('recognition started')
-  } else if(request.data === "stop") {
-    recognition.stop()
-    console.log('recognition stopped')
+  // if(request.data === "start"){
+  //   init()
+  //   recognition.start()
+  //   console.log('recognition started')
+  // } else if(request.data === "stop") {
+  //   recognition.stop()
+  //   console.log('recognition stopped')
+  // } else if(r)
+
+  /* respond to popup buttons and hotkey */
+  switch(request.data) {
+    case "start":
+      init()
+      recognition.start()
+      console.log('recognition started')
+      break;
+    case "stop":
+      recognition.stop()
+      console.log('recognition stopped')
+      break;
+    case "toggle":
+      if (recognition) {
+        recognition.onend = function(event){
+           recognition.stop()
+           recognition = false
+         }
+         
+        recognition.stop()
+        console.log('recognition stopped')
+      } else {
+        init()
+        recognition.start()
+        console.log('recognition started')
+      }
+      break;
   }
 });
 
@@ -22,10 +50,7 @@ const init = () => {
   recognition.lang = "en-US";
   recognition.onspeechstart = event => console.log("speech started");
   recognition.onend = function(event){
-    // recognition.stop()
-    // console.log('recognition stopped')
     recognition.start()
-    console.log('recognition started')
   }
   recognition.onerror = function(event){
 
