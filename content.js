@@ -21,11 +21,20 @@ const init = () => {
   recognition.interimResults = true;
   recognition.lang = "en-US";
   recognition.onspeechstart = event => console.log("speech started");
-
-  /* for websites other than netflix, try getting the HTMLVideoElement */
-  if (location.origin !== "https://www.netflix.com"){
-    var video = document.getElementsByTagName("video")[0];
+  recognition.onend = function(event){
+    // recognition.stop()
+    // console.log('recognition stopped')
+    recognition.start()
+    console.log('recognition started')
   }
+  recognition.onerror = function(event){
+
+  }
+
+
+  /* for websites other than netflix, use the HTML Video Element */
+  var video = document.getElementsByTagName("video")[0];
+
 
   /* respond to "play/pause/skip/rewind video" */
   recognition.onresult = event => {
@@ -40,29 +49,29 @@ const init = () => {
        interim_transcript += event.results[i][0].transcript;
      }
    }
-   // console.log(interim_transcript)
+   console.log(interim_transcript)
 
    if (interim_transcript.search("play video") != -1){
-     // console.log('play video was said');
-     (location.origin === "https://www.netflix.com") ? inject('player.play()') : video.play()
+     console.log('play video was said');
+     (location.origin === "https://www.netflix.com") ? inject('player.play()') : video.play();
    }
    if (interim_transcript.search("pause video") != -1){
-     // console.log('pause video was said');
-     (location.origin === "https://www.netflix.com") ? inject('player.pause()') : video.play()
+     console.log('pause video was said');
+     (location.origin === "https://www.netflix.com") ? inject('player.pause()') : video.pause();
    }
    if (final_transcript.search("skip video") != -1){
-     // console.log('skip video was said');
-     (location.origin === "https://www.netflix.com") ? inject('player.seek(player.getCurrentTime() + 10000)') : video.currentTime += 10
+     console.log('skip video was said');
+     (location.origin === "https://www.netflix.com") ? inject('player.seek(player.getCurrentTime() + 10000)') : video.currentTime += 10;
    }
    if (final_transcript.search("rewind video") != -1){
-     // console.log('rewind video was said');
-     (location.origin === "https://www.netflix.com") ? inject('player.seek(player.getCurrentTime() - 10000)') : video.currentTime -= 10
+     console.log('rewind video was said');
+     (location.origin === "https://www.netflix.com") ? inject('player.seek(player.getCurrentTime() - 10000)') : video.currentTime -= 10;
   }
  }
 }
 
 
-/* if it's a netflix video, the following code must be injected to get videoplayer */
+/* if it's a netflix video, the following code must be injected to get video*/
 function initVideo() {
     var video = netflix.appContext.state.playerApp.getAPI().videoPlayer
 
