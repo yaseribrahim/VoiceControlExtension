@@ -1,13 +1,14 @@
 {
-  "name": "VoicEE — Speech Video Playback",
+  "name": "Voice Control for Video",
   "version": "1.0",
-  "description": "Controls video playback through speech commands",
+  "description": "Control Netflix and YouTube playback through speech commands",
   "permissions": ["notifications", "activeTab", "declarativeContent", "storage"],
   "background": {
       "scripts": ["background.js"],
       "persistent": false
   },
-  "page_action": {
+  "browser_action": {
+   "default_title" : "Ctrl + E to start or stop voice control",
    "default_popup": "popup.html",
    "default_icon": {
       "16": "images/voice16.png",
