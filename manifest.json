@@ -1,6 +1,6 @@
 {
   "name": "Voice Control for Video",
-  "version": "1.0",
+  "version": "0.0.1",
   "description": "Control Netflix and YouTube playback through speech commands",
   "permissions": ["notifications", "activeTab", "declarativeContent", "storage"],
   "background": {

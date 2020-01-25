@@ -1,15 +1,6 @@
 var recognition = false;
-// const script = document.createElement("script");
 
 chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
-  // if(request.data === "start"){
-  //   init()
-  //   recognition.start()
-  //   console.log('recognition started')
-  // } else if(request.data === "stop") {
-  //   recognition.stop()
-  //   console.log('recognition stopped')
-  // } else if(r)
 
   /* respond to popup buttons and hotkey */
   switch(request.data) {
@@ -28,7 +19,7 @@ chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
            recognition.stop()
            recognition = false
          }
-         
+
         recognition.stop()
         console.log('recognition stopped')
       } else {
@@ -51,9 +42,6 @@ const init = () => {
   recognition.onspeechstart = event => console.log("speech started");
   recognition.onend = function(event){
     recognition.start()
-  }
-  recognition.onerror = function(event){
-
   }
 
 
@@ -86,11 +74,11 @@ const init = () => {
    }
    if (final_transcript.search("skip video") != -1){
      console.log('skip video was said');
-     (location.origin === "https://www.netflix.com") ? inject('player.seek(player.getCurrentTime() + 10000)') : video.currentTime += 10;
+     (location.origin === "https://www.netflix.com") ? inject('player.seek(player.getCurrentTime() + 20000)') : video.currentTime += 20;
    }
    if (final_transcript.search("rewind video") != -1){
      console.log('rewind video was said');
-     (location.origin === "https://www.netflix.com") ? inject('player.seek(player.getCurrentTime() - 10000)') : video.currentTime -= 10;
+     (location.origin === "https://www.netflix.com") ? inject('player.seek(player.getCurrentTime() - 20000)') : video.currentTime -= 20;
   }
  }
 }
