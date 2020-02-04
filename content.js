@@ -83,7 +83,6 @@ const init = () => {
  }
 }
 
-
 /* if it's a netflix video, the following code must be injected to get video*/
 function initVideo() {
     var video = netflix.appContext.state.playerApp.getAPI().videoPlayer
