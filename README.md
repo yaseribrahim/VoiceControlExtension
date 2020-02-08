@@ -1,12 +1,12 @@
 ## What it is
-A Chrome extension that controls Netflix and YouTube videos through speech commands. You can download it [here](https://chrome.google.com/webstore/detail/voice-control-for-video/chlidlijeeodennooemopellplaflomd). 
+A Chrome extension that controls Netflix and YouTube videos through speech commands. You can download it [here](https://chrome.google.com/webstore/detail/voice-control-for-video/chlidlijeeodennooemopellplaflomd) 
 
 <p align="middle" float="left">
   <img src="ScreenShot.png" alt="Screenshot_1573543334" width="325" hspace="20"/>
 
 
 
-To use it, press Start Recording from pop down (or ctrl/cmd + E) then say the any of the following commands:
+To use it, press Start Recording from the pop up (or ctrl/cmd + E) then say the any of the following commands:
 
 "Play Video"
 "Pause Video"
